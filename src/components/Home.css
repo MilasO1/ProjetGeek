@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+}
+
+.background-image {
+    background-image: url('images/login-background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+}
+
+.screen-background {
+    position: absolute;
+    top: 18.5%;
+    left: 49%;
+    transform: translateX(-50%);
+    width: 38%;
+    height: 48%;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.button {
+    background-color: rgba(0, 255, 255, 0.7) !important;
+    border: 2px solid #00ffff !important;
+    color: #3c0427 !important;
+    padding: 10px 20px !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+    margin: 0 50px;
+    top: 60%;
+    left: 12%;
+}
+
+.button:hover {
+    background-color: transparent;
+    color: #c84c9f;
+    box-shadow: 0 0 20px #d31c9c, 0 0 30px #00ffcc;
+    border: 2px solid #864275;
+}
+
+h1 {
+    color: #00ffff;
+    font-size: 50px !important;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 35px !important;
+}
