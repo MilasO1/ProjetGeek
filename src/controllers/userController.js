@@ -1,10 +1,12 @@
 const User = require("../models/User");
 const connectDb = require("../config/db");
 const bcrypt = require("bcrypt");
+const auth = require ('../middleware/auth.js')
 
 const jwt = require("jsonwebtoken");
 const createToken = (_id) => {
-  return jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: "2d" });
+  const token = jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: "2d" });
+  return token
 };
 
 // Récuperer les utilisateurs
@@ -60,7 +62,7 @@ exports.createUser = async (req, res) => {
     const newUser = new User({ name, email, password });
     await newUser.save();
 
-    const token = createToken(user._id);
+    const token = createToken(newUser._id);
 
     res.status(201).json({ success: true, token });
   } catch (error) {
