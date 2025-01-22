@@ -1,4 +1,5 @@
 // Middleware pour vérifier le JWT
+const jwt = require("jsonwebtoken");
 
 const auth = async function authenticateToken(req, res, next) {
   try {
@@ -7,7 +8,7 @@ const auth = async function authenticateToken(req, res, next) {
     if (!token)
       return await res.status(401).json({ message: "Token manquant" });
 
-    jwt.verify(token, JWT_SECRET, (err, user) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
       if (err) return res.status(403).json({ message: "Token invalide" });
       req.user = user; // Ajouter l'utilisateur décodé à la requête
       next();
@@ -16,6 +17,5 @@ const auth = async function authenticateToken(req, res, next) {
     console.error("error");
   }
 };
-console.log("s");
 
 module.exports = auth;
