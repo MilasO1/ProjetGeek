@@ -1,4 +1,5 @@
 const express = require("express");
+const auth = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -8,9 +9,8 @@ const {
   removeOrder,
 } = require("../controllers/orderController");
 
-
-router.post("/:cartId", placeOrder);
-router.get("/:userId", getUserOrders);
-router.delete("/:cartId", removeOrder);
+router.post("/:cartId", auth, placeOrder);
+router.get("/:userId", auth, getUserOrders);
+router.delete("/:cartId", auth, removeOrder);
 
 module.exports = router;

@@ -11,7 +11,7 @@ const adSchema = new mongoose.Schema({
   description: { type: String, required: true },
   type: { type: String, enum: ["vente", "don"], required: true },
   price: { type: Number, default: 0, required: true },
-  urlImage: { type: String, required: true },
+  urlImage: { type: String },
 });
 
 module.exports = mongoose.model("Ad", adSchema);

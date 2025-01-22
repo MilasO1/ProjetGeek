@@ -1,4 +1,6 @@
 const express = require("express");
+const multer = require("multer");
+const auth = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -9,8 +11,10 @@ const {
   removeAd,
 } = require("../controllers/adController");
 
-router.post("/", createAd);
+const upload = multer({ dest: "uploads/" });
+
+router.post("/", upload.single("imageFile"), auth, createAd);
 router.get("/", getAllAds);
 router.get("/:id", getAdDetails);
-router.delete("/:id", removeAd);
+router.delete("/:id", auth, removeAd);
 module.exports = router;
