@@ -33,7 +33,6 @@ exports.createAd = async (req, res) => {
         .status(400)
         .json({ message: "Les prix est requis pour cette annonce" });
     }
-    let urlImage = "";
     // upload image
     if (!req.file) {
       return res.status(400).json({ error: "No file uploades" });
@@ -41,10 +40,10 @@ exports.createAd = async (req, res) => {
     const uploadResult = await cloudinary.uploader.upload(req.file.path, {
       folder: "images",
     });
-
-    urlImage = uploadResult.secure_url;
-
     fs.unlinkSync(req.file.path);
+
+    let urlImage = uploadResult.secure_url;
+    let public_id = uploadResult.public_id;
 
     const newAd = await Ad.create({
       categorie,
@@ -52,6 +51,7 @@ exports.createAd = async (req, res) => {
       description,
       type,
       price,
+      public_id,
       urlImage,
     });
     res.status(201).json(newAd);
@@ -69,7 +69,7 @@ exports.getAdDetails = async (req, res) => {
 
   try {
     const ad = await Ad.findById(id);
-    if (ad) res.status(200).json(annonce);
+    if (ad) res.status(200).json(ad);
     else res.status(404).json({ message: "Ad not found" });
   } catch (error) {
     res.status(500).json({ message: `Erreur lors de la connexion`, error });
@@ -78,9 +78,13 @@ exports.getAdDetails = async (req, res) => {
 
 // Supprimer annonces
 exports.removeAd = async (req, res) => {
+  const { id } = req.params;
   try {
-    const { id } = req.params;
     const annonce = await Ad.findByIdAndDelete(id);
+    if (!annonce) {
+      return res.status(404).json({ error: "Annonce not found" });
+    }
+    await cloudinary.uploader.destroy(annonce.public_id);
     res.status(200).json({ message: `Annonce supprimé`, annonce });
   } catch (err) {
     res
