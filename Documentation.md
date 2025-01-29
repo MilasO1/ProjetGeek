@@ -499,4 +499,37 @@ cloudinary.config({
 
 Ajout du chemin pour delete l’image lors de la suppression de l’annonce et refonte de la documentation.
 
+### Jour 10 - 28/01/2025
+
+**Rôles** :
+
+- Xan: Chef de Projet
+- Ewan: Documentaire
+- Victor: Développeur
+- Souka: Chef de Projet
+- Ayoub: Documentaire
+
+**Actions** :
+
+Connection du back et front nottament grâce à cors.
+Début du front end : c'est à dire la page Home, login et register qu'on a connecter avec le back.
+
+Le formulaire inscription qu'on rempli, une fois soumis, on retrouve notre utilisateur dans notre base de donnée MongoseDB.
+
+### Jour 11 - 29/01/2025
+
+**Rôles** :
+
+- Xan: Documentaire
+- Ewan: Développeur
+- Victor: Chef de Projet
+- Souka: Documentaire
+- Ayoub: Développeur
+
+**Actions** :
+
 ## 8° Contribution
+
+Belahcene Victor
+Balandrau Xan
+El Mousaddiq Soukaina

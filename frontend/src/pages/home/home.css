@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+}
+
+.background-home {
+  background-image: url("../../../public/images/home-background.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+}
+
+.screen-background {
+  position: absolute;
+  top: 18.5%;
+  left: 49%;
+  transform: translateX(-50%);
+  width: 38%;
+  height: 48%;
+  background-color: rgba(30, 30, 30, 0.9);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.button {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 255, 1) 0%,
+    rgba(0, 150, 255, 1) 100%
+  );
+  border: none;
+  color: #1a1a1a !important;
+  padding: 15px 30px !important;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 150, 255, 0.5);
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  margin: 50px;
+}
+
+.button:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 150, 255, 1) 0%,
+    rgba(0, 255, 255, 1) 100%
+  );
+  color: #1a1a1a;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 150, 255, 1);
+  border: none;
+}
