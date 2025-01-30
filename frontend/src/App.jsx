@@ -15,6 +15,7 @@ import Order from "./pages/Order";
 import Donations from "./pages/Donations";
 import NavBar from "./components/partials/NavBar";
 import Footer from "./components/partials/Footer";
+import AdDetails from "./pages/Ads/AdDetails";
 
 function Layout() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function Layout() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/ads" element={<AdsList />} />
+        <Route path="/ads/:id" element={<AdDetails />} />
         <Route path="/ads/create" element={<CreateAd />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/orders" element={<Order />} />

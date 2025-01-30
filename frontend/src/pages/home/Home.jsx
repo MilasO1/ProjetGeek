@@ -2,18 +2,33 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bulma/css/bulma.min.css";
 import "./home.css";
+import axios from "axios";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function Home() {
   const [ads, setAds] = useState([]);
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    fetch("/api/ads")
-      .then((reponse) => reponse.json())
-      .then((data) => setAds(data))
-      .catch((error) =>
-        console.error("Erreur lors du chargement des annonces", error)
-      );
+    const ListAnnonce = async (e) => {
+      try {
+        const response = await axios.get(`${API_URL}/api/ads/`);
+
+        // Vérification de la réponse HTTP
+        if (response.status < 200 || response.status >= 300) {
+          throw new Error(
+            `Erreur HTTP: ${response.status} ${response.statusText}`
+          );
+        }
+
+        // Traitement des données si la réponse est valide
+        console.log(response.data);
+        setAds(response.data);
+      } catch (error) {
+        console.error("Une erreur s'est produite:", error.message);
+      }
+    };
+    ListAnnonce();
   }, []);
 
   const filteredAds = filter ? ads.filter((ad) => ad.type === filter) : ads;
@@ -48,13 +63,16 @@ function Home() {
       <div className="container mt-4">
         <div className="columns is-multiline">
           {filteredAds.map((ad) => (
-            <div className="column is-one-third" key={ad.id}>
+            <div className="column is-one-third" key={ad._id}>
               <div className="card">
                 <div className="card-content">
+                  <img src={ad.urlImage} alt="" />
                   <p className="title">{ad.title}</p>
                   <p className="subtitle">{ad.type}</p>
+                  <p>{ad.price}</p>
+                  <p>{ad.categorie}</p>
                   <p>{ad.description}</p>
-                  <Link to={`/ads/ ${ad.id}`} className="button is-info mt-2">
+                  <Link to={`/ads/ ${ad._id}`} className="button is-info mt-2">
                     Voir les détails
                   </Link>
                 </div>
