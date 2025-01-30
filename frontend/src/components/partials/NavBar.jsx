@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
+import "bulma/css/bulma.min.css";
 
 const NavBar = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div>navbar</div>;
+};
 
-export default NavBar
+export default NavBar;

@@ -2,6 +2,10 @@
 
 Un site de vente en ligne pour les fans de culture geek, il permet la vente ou le don d’objets geek (jeux vidéo, consoles, figurines, vêtements, …).
 
+Lien versel : https://projet-geek.vercel.app/
+
+Lien GitHub : https://github.com/MilasO1/ProjetGeek
+
 ### Table des matières
 
 1. Description
@@ -525,6 +529,22 @@ Le formulaire inscription qu'on rempli, une fois soumis, on retrouve notre utili
 - Victor: Chef de Projet
 - Souka: Documentaire
 - Ayoub: Développeur
+
+**Actions** :
+
+On a créer les pages Annonces, panier, commandes et dons.
+Créer les routes et on a utiliser useLocation() pour que la navbar ne s'affiche pas sur les pages login et register.
+On a afficher les annonces sur la pages home
+
+### Jour 12 - 30/01/2025
+
+**Rôles** :
+
+- Xan: Développeur
+- Ewan: Chef de Projet
+- Victor: Documentaire
+- Souka: Développeur
+- Ayoub: Chef de Projet
 
 **Actions** :
 
