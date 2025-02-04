@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
+import FormInput from "../../components/Form/FormInput";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -31,32 +32,20 @@ function Login() {
       <div class="background-login">
         <h1 class="title">Login</h1>
         <form onSubmit={loginSubmit}>
-          <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
-              <input
-                className="input"
-                type="email"
-                placeholder="Entrez email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Password</label>
-            <div className="control">
-              <input
-                className="input"
-                type="password"
-                placeholder="Entrez password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-          </div>
+          <FormInput
+            label={"Email"}
+            type={"email"}
+            placeholder={"Entrez mail"}
+            value={email}
+            function={setEmail}
+          />
+          <FormInput
+            label={"Password"}
+            type={"password"}
+            placeholder={"Entrez password"}
+            value={password}
+            function={setPassword}
+          />
           <div className="field">
             <div className="control">
               <button className="button-login" type="submit">
