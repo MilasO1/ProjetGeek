@@ -13,7 +13,7 @@ import CreateAd from "./pages/Ads/CreateAd";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
 import Donations from "./pages/Donations";
-import NavBar from "./components/partials/NavBar";
+import NavBar from "./components/partials/navbar/NavBar";
 import Footer from "./components/partials/Footer";
 import AdDetails from "./pages/Ads/AdDetails";
 

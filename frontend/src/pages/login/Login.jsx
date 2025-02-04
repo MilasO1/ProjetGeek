@@ -19,6 +19,7 @@ function Login() {
         password,
       });
       alert("Bien connecté");
+      localStorage.setItem("token", response.data.token);
       navigate("/");
       console.log(response.data);
     } catch (error) {
